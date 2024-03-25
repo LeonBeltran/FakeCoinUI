@@ -29,9 +29,9 @@
     const toMintValue = parseInt(toMintInput.value);
 
     await contract.mint(signer, toMintValue);
+    alert("You know how it feels to mint 5 gum")
     balance = await contract.balanceOf(signer)
     staked = await contract.getStake(signer)
-    alert("You know how it feels to mint 5 gum")
 }
 
 const stake = async () => {
@@ -44,9 +44,9 @@ const stake = async () => {
     const toStakeValue = parseInt(toStakeInput.value);
 
     await contract.stake(toStakeValue);
+    alert("Welcome to the Stake F1 team")
     balance = await contract.balanceOf(signer)
     staked = await contract.getStake(signer)
-    alert("Welcome to the Stake F1 team")
 }
 
   const withdraw = async () => {
@@ -56,9 +56,9 @@ const stake = async () => {
     const contract = await initializeContract(signer);
 
     await contract.withdraw();
+    alert("Stonks!")
     balance = await contract.balanceOf(signer)
     staked = await contract.getStake(signer)
-    alert("Stonks!")
   }
 
   const initializeContract = async (signer: JsonRpcSigner) => {
@@ -76,7 +76,7 @@ const stake = async () => {
   <h2>You have {staked} stakes in Stake F1 team</h2>
   <p><input type="number" id="toMint" placeholder="Mint Amount"></p>
   <p><input type="number" id="toStake" placeholder="Stake Amount"></p>
-  <button on:click={connectWallet}>Connect Wallet</button>
+  <button on:click={connectWallet}>Connect Wallet/Refresh Data</button>
   <button on:click={stake}>Stake F1 team</button>
   <button on:click={mint}>Mint here to find out how it feels to chew 5 gum</button>
   <button on:click={withdraw}>Withdraw and Get Stonks</button>
